@@ -1,0 +1,90 @@
+:root {
+  --black-color: #171717;
+  --darkgrey-color: #585858;
+  --lightgrey-color: #ededed;
+  --background-color: #f8f8f8;
+  --orange-color: #fd9b40;
+  --blue-color: #b7e4f9;
+  --yellow-color: #fdeb40;
+  --red-color: #d4464c;
+}
+
+.nosotros .scrolling-banner {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  color: rgb(255, 255, 255);
+  padding: 1rem 0rem;
+}
+
+.nosotros .scrolling-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  animation: scroll 20s linear infinite;
+}
+
+.nosotros .scrolling-content h1 {
+  font-size: 8rem;
+  margin-right: 10rem;
+  letter-spacing: 0.25rem;
+  font-weight: 600;
+  font-family: "Gothic A1", sans-serif;
+  text-transform: uppercase;
+}
+
+.nosotros .content {
+  background-color: rgb(252, 252, 252);
+  color: black;
+}
+
+.nosotros .content div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nosotros .content div h2 {
+  font-size: 25rem;
+}
+
+.nosotros .content div:nth-child(1) h2 {
+  color: var(--orange-color);
+}
+.nosotros .content div:nth-child(2) h2 {
+  color: var(--blue-color);
+}
+.nosotros .content div:nth-child(3) h2 {
+  color: var(--red-color);
+}
+
+.nosotros .content div article {
+  padding: 4rem;
+}
+
+.nosotros .content div article h3 {
+  font-size: 4rem;
+}
+
+.nosotros .content div:nth-child(2) {
+  flex-direction: row-reverse;
+}
+
+.nosotros .CTA {
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding: 1rem;
+  display: inline-block;
+  margin-top: 2rem;
+  width: 100%;
+  border-radius: 100px;
+  border: 2px solid black;
+  color: black;
+}
+
+.nosotros .CTA:hover {
+  background-color: var(--yellow-color);
+}

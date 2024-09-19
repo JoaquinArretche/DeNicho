@@ -1,0 +1,114 @@
+:root {
+  --black-color: #171717;
+  --darkgrey-color: #585858;
+  --lightgrey-color: #ededed;
+  --background-color: #f8f8f8;
+  --orange-color: #fd9b40;
+  --blue-color: #b7e4f9;
+  --yellow-color: #fdeb40;
+}
+
+.footer {
+  background-color: var(--black-color);
+  padding: 2rem 0rem;
+  color: white;
+}
+
+.footer .centrado {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer ul {
+  list-style: none;
+  margin-top: 2rem;
+}
+
+.footer h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.footer .left p {
+  color: gainsboro;
+  font-weight: 200;
+}
+
+.footer ul li {
+  color: gainsboro;
+  font-weight: 200;
+  margin-top: 1rem;
+}
+
+.footer h2 {
+  font-size: 3rem;
+}
+
+.footer .right .input {
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 100px;
+  border: 1px solid gainsboro;
+  margin-top: 2rem;
+}
+
+.footer .right .input .send-icon {
+  color: black;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 100px;
+  transform: rotate(-45deg); /* Rotate by 45 degrees */
+}
+
+.input .form {
+  background-color: var(--black-color);
+  color: gainsboro;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.input .form::placeholder {
+  color: gainsboro; /* Make the placeholder text white */
+}
+
+.input .form:focus {
+  outline: none; /* Remove outline on focus */
+  border: none; /* Remove border on focus */
+}
+
+@media (max-width: 768px) {
+  .footer .centrado {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+  }
+
+  .footer,
+  .left,
+  .center1,
+  .center2,
+  .right {
+    margin-top: 3rem;
+  }
+
+  .footer .right .input {
+    margin-top: 1rem;
+  }
+
+  .footer .left p {
+    margin-top: 2rem;
+  }
+}
