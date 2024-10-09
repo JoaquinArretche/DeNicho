@@ -1,0 +1,46 @@
+.entrepreneur-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+  background-color: #ffffff; /* Fondo blanco para el contenedor */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transición para efectos */
+  cursor: pointer; /* Cambia el cursor a pointer */
+}
+
+.entrepreneur-card:hover {
+  transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el mouse */
+}
+
+.entrepreneur-card .logo {
+  height: 60px; /* Tamaño del logo */
+  margin-right: 15px;
+  transition: transform 0.3s; /* Transición suave */
+}
+
+.entrepreneur-card .logo:hover {
+  transform: scale(1.1); /* Efecto de aumento en el logo al pasar el mouse */
+}
+
+.entrepreneur-card .logo-text {
+  font-size: 28px; /* Tamaño del texto */
+  font-weight: 600; /* Grosor del texto */
+  color: #333; /* Color del texto */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+@media (max-width: 768px) {
+  .entrepreneur-card {
+    min-width: 100%;
+    padding: 15px 20px;
+    justify-content: flex-start;
+  }
+
+  .entrepreneur-card .logo-text {
+    font-size: 1rem;
+  }
+}

@@ -1,11 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import "./Login.css";
+import { useDispatch } from "react-redux";
 import { authUser } from "../../../services/authUser.service";
 import { authAdapter } from "../../../adapters/auth.adapter";
+import { PublicRoutes } from "../../../models/routes";
+import { createUser } from "../../../redux/states/user";
 
-export default function Login() {
+const LoginForm = ({ onSwitch, onClose }) => {
   const [loading, setLoading] = useState(false);
-  const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
+  const dispatch = useDispatch();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -15,48 +19,45 @@ export default function Login() {
       password: event.target.password.value,
     };
 
+    setError(null);
     setLoading(true);
     try {
-      const adaptedData = authAdapter(await authUser(credentials));
-      setUserData(adaptedData);
-      setError(null);
-      console.log("Login successful:", adaptedData);
+      const adaptedUser = authAdapter(await authUser(credentials));
+      dispatch(createUser({ ...adaptedUser }));
     } catch (err) {
-      console.error("Error logging in:", err);
-      setError(err.message);
-      setUserData(null);
+      console.log(err);
+      setError(err?.message || "Error al iniciar sesión");
     } finally {
       setLoading(false);
     }
   };
-
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email:
-          <input type="email" name="email" required />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="text" name="password" required />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-      </form>
-
-      {loading ? (
-        <p>Cargando...</p>
-      ) : userData ? (
-        <div>
-          <h2>Datos del Usuario</h2>
-          <pre>{JSON.stringify(userData, null, 2)}</pre>
+    <div className="register">
+      <div className="auth-container">
+        <div className="form">
+          <h2>Iniciar Session</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>Email</label>
+              <input type="email" name="email" required />
+            </div>
+            <div>
+              <label>Contraseña</label>
+              <input type="password" name="password" required />
+            </div>
+            <button type="submit">Registrarse</button>
+          </form>
+          {loading && <p>Cargando...</p>}
+          {error && <p>{error}</p>}
+          <a href={PublicRoutes.REGISTER}>
+            <p>
+              ¿No tienes cuenta? <span onClick={onSwitch}>Registrate aquí</span>
+            </p>
+          </a>
         </div>
-      ) : (
-        error && <p>{error}</p>
-      )}
+      </div>
     </div>
   );
-}
+};
+
+export default LoginForm;

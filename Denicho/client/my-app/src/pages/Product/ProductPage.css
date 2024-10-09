@@ -1,0 +1,140 @@
+.product-page-container {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-page {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 20px;
+}
+
+.product-gallery {
+  display: flex;
+}
+
+.large-image {
+  width: 400px;
+  height: 400px;
+  background-color: #ccc;
+  object-fit: cover;
+  display: inline-block;
+}
+
+.small-images {
+  display: flex;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.small-image {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #ccc;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
+}
+
+.small-image:hover {
+  border: 2px solid black;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 40%;
+}
+
+.product-details h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.product-details p {
+  margin: 10px 0;
+}
+
+.product-details .price span {
+  font-size: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.add-to-cart-btn,
+.visit-entrepreneur-btn {
+  padding: 10px 20px;
+  color: rgb(0, 0, 0);
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+  background-color: rgb(90, 90, 90);
+  color: whitesmoke;
+}
+
+.visit-entrepreneur-btn {
+  background-color: black;
+  color: whitesmoke;
+  border: none;
+}
+
+.visit-entrepreneur-btn:hover {
+  background-color: orange;
+  color: black;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .product-page-container {
+    height: fit-content;
+    padding: 2rem 0;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+  }
+
+  .small-images {
+    flex-direction: row;
+    margin-left: 0rem;
+    margin-top: 1rem;
+  }
+
+  .product-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .large-image {
+    width: 100%;
+  }
+
+  .product-details {
+    max-width: 100%;
+  }
+
+  .actions {
+    margin-top: 2rem;
+  }
+
+  .add-to-cart-btn,
+  .visit-entrepreneur-btn {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

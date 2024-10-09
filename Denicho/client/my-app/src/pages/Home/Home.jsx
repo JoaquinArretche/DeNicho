@@ -6,6 +6,7 @@ import SmileyIcon from './SmiileyIcon';
 import { person, key } from 'ionicons/icons'; // Import icons for login and register
 import './Home.css';
 
+
 const Home = () => {
     const [activeIndex, setActiveIndex] = useState(null);
 
@@ -85,6 +86,7 @@ const Home = () => {
                     <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio laborum aliquid illo voluptas rerum explicabo quasi dicta corrupti! Nobis impedit laudantium delectus ex, aperiam similique iste voluptate minima quae itaque.</h2>
                 </div>
             </section>
+
 
             <section className='section3'>
                 <div className='head'>

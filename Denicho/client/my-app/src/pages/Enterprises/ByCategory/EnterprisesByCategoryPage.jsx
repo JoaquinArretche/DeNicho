@@ -5,7 +5,7 @@ import { fetchProductAttributes } from "../../../services/fetchProductAttributes
 import { enterpriseProductAdapter } from "../../../adapters/enterpriseProducts.adapter";
 import { attributesAdapter } from "../../../adapters/attributes.adapter";
 
-export default function EnterprisesByCategory() {
+export default function EnterprisesByCategoryPage() {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
   const [attributes, setAttributes] = useState(null);

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { registerEnterprise } from "../../../services/registerEnterprise.service";
 
-export default function EnterpriseRegister() {
+export default function EnterpriseRegisterPage() {
   const [loading, setLoading] = useState(false);
-  const [authData, setAuthData] = useState(null);
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,15 +20,14 @@ export default function EnterpriseRegister() {
     formData.append("logo", event.target.logo.files[0]);
 
     setLoading(true);
+    setError(null);
+    setSuccess(false);
+
     try {
-      const response = await registerEnterprise(formData);
-      setAuthData(response.message);
-      setError(null);
-      console.log("Register successful:", response);
+      await registerEnterprise(formData);
+      setSuccess(true);
     } catch (err) {
-      console.error("Error registering enterprise:", err);
       setError(err.message);
-      setAuthData(null);
     } finally {
       setLoading(false);
     }
@@ -36,10 +35,10 @@ export default function EnterpriseRegister() {
 
   return (
     <div>
-      <h1>Enterprise Register</h1>
+      <h1>Registro de Emprendimiento</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Name:
+          Nombre:
           <input type="text" name="name" required />
         </label>
         <br />
@@ -59,17 +58,17 @@ export default function EnterpriseRegister() {
         </label>
         <br />
         <label>
-          Description:
+          Descripción:
           <textarea name="description" required />
         </label>
         <br />
         <label>
-          Password:
-          <input type="text" name="password" required />
+          Contraseña:
+          <input type="password" name="password" required />
         </label>
         <br />
         <label>
-          Category:
+          Categoría:
           <select name="category" required>
             <option value="Arte">Arte</option>
             <option value="Hogar&Dec">Hogar & Dec</option>
@@ -82,17 +81,12 @@ export default function EnterpriseRegister() {
           <input type="file" name="logo" accept="image/*" required />
         </label>
         <br />
-        <button type="submit">Register</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Cargando..." : "Registrar"}
+        </button>
       </form>
-      {loading ? (
-        <p>Cargando...</p>
-      ) : authData ? (
-        <div>
-          <pre>{authData}</pre>
-        </div>
-      ) : (
-        <p>{error}</p>
-      )}
+      {error && <p>{error}</p>}
+      {success && <p>Registro exitoso</p>}
     </div>
   );
 }
